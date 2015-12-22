@@ -50,21 +50,33 @@ sourceSets {
 
 dependencies {
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: versions.'spring-boot'
+    compile("org.springframework:spring-tx:${versions.spring}")
+    compile("org.springframework:spring-orm:${versions.spring}")
+    compile("org.springframework:spring-expression:${versions.spring}")
+
     compile group: 'org.springframework.security', name: 'spring-security-web', version: versions.springSecurity
     compile group: 'org.springframework.security', name: 'spring-security-config', version: versions.springSecurity
     compile group: 'org.springframework.security', name: 'spring-security-core', version: versions.springSecurity
     compile group: 'org.springframework.security', name: 'spring-security-taglibs', version: versions.springSecurity
+ 
+    compile group: 'org.hibernate', name: 'hibernate-core', version: versions.hibernate
+    compile("org.hibernate:hibernate-entitymanager:${versions.hibernate}")
+    compile("org.hibernate:hibernate-c3p0:${versions.hibernate}")
+    compile("org.hibernate:hibernate-envers:${versions.hibernate}")
+ 
     compile group: 'org.slf4j', name: 'slf4j-api', version: versions.slf4j
     compile group: 'com.google.guava', name: 'guava', version: versions.guava
     compile group: 'ch.qos.logback', name: 'logback-classic', version: versions.logback
-    runtime group: 'org.slf4j', name: 'jcl-over-slf4j', version: versions.jclSlf4j
-
+    compile group: 'javax.transaction', name: 'jta', version: versions.jta
 
     testCompile group: 'junit', name: 'junit', version: versions.junit
     testCompile group: 'org.springframework', name: 'spring-test', version: versions.spring
     testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: versions.'spring-boot'
     testCompile group: 'org.mockito', name: 'mockito-all', version: versions.mockito
     testCompile group: 'pl.pragmatists', name: 'JUnitParams', version: versions.junitParams
+    testCompile group: 'com.h2database', name: 'h2', version: versions.h2
+
+    runtime group: 'org.slf4j', name: 'jcl-over-slf4j', version: versions.jclSlf4j
     providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: versions.javaxServletApi
     providedCompile group: 'javax.servlet', name: 'jsp-api', version: versions.jspApi
 }

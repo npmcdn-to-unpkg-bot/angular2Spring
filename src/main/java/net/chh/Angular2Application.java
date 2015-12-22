@@ -27,4 +27,5 @@ public class Angular2Application {
   public static void main(String[] args) {
     SpringApplication.run(Angular2Application.class, args);
   }
+
 }
