@@ -18,3 +18,4 @@ target/
 # Gradle
 build/
 /.checkstyle
+/node_modules/

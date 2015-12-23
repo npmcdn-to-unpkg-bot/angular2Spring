@@ -16,7 +16,7 @@ public class Angular2Application {
   /**
    * Web service request.
    */
-  @RequestMapping("/resource")
+  @RequestMapping("/home")
   public Map<String, Object> home() {
     final Map<String, Object> model = new HashMap<String, Object>();
     model.put("id", UUID.randomUUID().toString());
