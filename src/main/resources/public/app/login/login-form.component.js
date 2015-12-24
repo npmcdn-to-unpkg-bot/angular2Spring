@@ -9,14 +9,36 @@
         },
         onSubmit : function() {
             this.submitted = true;
+            this.login(this.model);
         },
-        logout : function() {
-            $http.post('logout', {}).success(function() {
-                $rootScope.authenticated = false;
-                $location.path("/");
-              }).error(function(data) {
-                $rootScope.authenticated = false;
-              });            
+        login : function(model) {
+            ajaxSend({
+                type : 'POST',
+                url : '/login',
+                data : {
+                    'username': model.username,
+                    'password': model.password
+                },
+                success : function(data, textStatus) {
+                    console.log(data)
+                },
+                error : function(XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(textStatus)
+                    console.log(errorThrown)
+                }
+            });
+            // var csrfToken = $.cookie('XSRF-TOKEN');
+            // fetch('login', {
+            // method: 'POST',
+            // headers: {
+            // 'Accept': 'application/json',
+            // 'Content-Type': 'application/json',
+            //                  'X-CSRF-TOKEN' : csrfToken,
+            //                },
+            //                body: JSON.stringify({
+            //                  model
+            //                })
+            //              })           
         },
     });
 })(window.app || (window.app = {}));
