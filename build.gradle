@@ -85,7 +85,12 @@ dependencies {
     compile group: 'com.google.guava', name: 'guava', version: versions.guava
     compile group: 'ch.qos.logback', name: 'logback-classic', version: versions.logback
     compile group: 'javax.transaction', name: 'jta', version: versions.jta
+    compile group: 'org.axonframework', name: 'axon-core', version: versions.axonframework
+    compile group: 'com.typesafe.akka', name: 'akka-actor_2.11', version: versions.'akka'
+    compile group: 'io.reactivex', name: 'rxjava', version: versions.'rxjava'
 
+    testCompile group: 'com.typesafe.akka', name: 'akka-testkit_2.11', version: versions.'akka'
+    testCompile group: 'org.axonframework', name: 'axon-test', version: versions.axonframework
     testCompile group: 'junit', name: 'junit', version: versions.junit
     testCompile group: 'org.springframework', name: 'spring-test', version: versions.spring
     testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: versions.'spring-boot'

@@ -10,6 +10,9 @@ ext.versions = [
         'logback'               : '1.1.2',
         'guava'                 : '18.0',
         'jta'                   : '1.1',
+        'axonframework'         : '2.4.4',
+        'akka'                  : '2.4.6',
+        'rxjava'                : '1.1.5',
 
         // Test Dependency
         'junit'                 : '4.11',
