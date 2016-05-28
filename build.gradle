@@ -88,7 +88,8 @@ dependencies {
     compile group: 'org.axonframework', name: 'axon-core', version: versions.axonframework
     compile group: 'com.typesafe.akka', name: 'akka-actor_2.11', version: versions.'akka'
     compile group: 'io.reactivex', name: 'rxjava', version: versions.'rxjava'
-
+    compile group: 'org.projectlombok', name: 'lombok', version: versions.'lombok'
+    
     testCompile group: 'com.typesafe.akka', name: 'akka-testkit_2.11', version: versions.'akka'
     testCompile group: 'org.axonframework', name: 'axon-test', version: versions.axonframework
     testCompile group: 'junit', name: 'junit', version: versions.junit
@@ -96,6 +97,7 @@ dependencies {
     testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: versions.'spring-boot'
     testCompile group: 'org.mockito', name: 'mockito-all', version: versions.mockito
     testCompile group: 'pl.pragmatists', name: 'JUnitParams', version: versions.junitParams
+    testCompile group: 'org.assertj', name: 'assertj-core', version: versions.assertj
     compile group: 'com.h2database', name: 'h2', version: versions.h2
 
     runtime group: 'org.slf4j', name: 'jcl-over-slf4j', version: versions.jclSlf4j

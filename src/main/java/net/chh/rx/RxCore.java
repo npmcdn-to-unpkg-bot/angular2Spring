@@ -4,34 +4,29 @@ import java.util.Map;
 import java.util.concurrent.locks.ReentrantLock;
 import com.google.common.collect.Maps;
 
-public class RxCore
-{
+public class RxCore {
 
-    private Map<RxKey, SnapshotUpdateSubject<RxData>> subscriptionStreams = Maps.newConcurrentMap();
+  private Map<RxKey, SnapshotUpdateSubject<RxData>> subscriptionStreams = Maps.newConcurrentMap();
 
-    private ReentrantLock subscriptionLocks = new ReentrantLock();
+  private ReentrantLock subscriptionLocks = new ReentrantLock();
 
-    public RxCore()
-    {
+  private RxProvider<RxData> provider;
+  public RxCore(RxProvider<RxData> provider) {
+    this.provider = provider;
+  }
 
+  public SnapshotUpdateSubject<RxData> instrumentSubscription(RxKey key) {
+    subscriptionLocks.lock();
+    try {
+      SnapshotUpdateSubject<RxData> subject = subscriptionStreams.get(key);
+      if (subject == null) {
+        subject = new SnapshotUpdateSubject<RxData>(key);
+        subject.startSubscription(provider);
+        subscriptionStreams.put(key, subject);
+      }
+      return subject;
+    } finally {
+      subscriptionLocks.unlock();
     }
-
-    public Object instrumentSubscription(RxKey key)
-    {
-        subscriptionLocks.lock();
-        try
-        {
-            SnapshotUpdateSubject<RxData> subject = subscriptionStreams.get(key);
-            if (subject == null)
-            {
-                subject = new SnapshotUpdateSubject();
-                subscriptionStreams.put(key, subject);
-            }
-            return subject;
-        } finally
-        {
-            subscriptionLocks.unlock();
-        }
-
-    }
+  }
 }

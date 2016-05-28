@@ -1,6 +1,5 @@
 package net.chh.rx;
 
-public class RxData
-{
+public class RxData {
 
 }

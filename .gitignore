@@ -19,3 +19,6 @@ target/
 build/
 /.checkstyle
 /node_modules/
+/bin
+/.gradle
+/events

@@ -13,12 +13,14 @@ ext.versions = [
         'axonframework'         : '2.4.4',
         'akka'                  : '2.4.6',
         'rxjava'                : '1.1.5',
+        'lombok'                : '1.16.8',
 
         // Test Dependency
         'junit'                 : '4.11',
         'mockito'               : '1.9.5',
         'junitParams'           : '1.0.2',
         'h2'                    : '1.4.190',
+        'assertj'               : '1.2.0',
         
         // Provided Dependency
         'javaxServletApi'       : '3.0.1',
